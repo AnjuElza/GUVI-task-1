@@ -1,0 +1,156 @@
+Task - 1:
+
+QUESTION:1
+    
+Write a blog on differences between HTTP 1.1 vs HTTP2
+
+Answer:
+
+HTTP:
+  HTTP stands for HyperText Transfer Protocol and is used in client-server communication. The first usable version of HTTP was created in 1997 and is called as HTTP/1.1.
+The HTTP/2 version was created in 2015 in order to rectify the shortcomings of HTTP1.1 version. HTTP2 is more efficient and faster than HTTP1.1. The main differences of 
+both versions are explained below.
+
+Differences between HTTP1.1 AND HTTP2
+1) Binary Protocol
+     HTTP1.1 processes textual commands to complete request-response cycle while HTTP2 uses binary protocol(0s and 1s) to perform the same task.
+     Benefits:
+         - Increased security
+         - Low overhead in parsing data
+         - Less prone to errors
+2) Multiplexing
+     HTTP1.1 allows only one request over one TCP connection while HTTP2 allows multiple parallel client-requests over one TCP connection, that is, HTTP2 is multiplexed.
+     Benefits:
+         - Reduces additional round trip time, thus reducing the website load time
+3) Head Of Line(HOL) blocking     In HTTP1.1, HOL blocking problem is present which means that if a request cannot retrieve its resource, it will block all other requests behind it until it gets its resource.
+     In HTTP2, due to multiplexing, that is, multiple requests run in parallel, HOL problem is eliminated.
+     Benefits:
+         - Website loads faster
+4) Compression
+     HTTP1.1 uses formats like gzip to compress the data transferred in the messages.The header is always send as plain text.
+     HTTP2 uses HPACK compression for header compression.
+     Benefits:
+          - HPACK compression helps to overcome the common API security threat
+5) Predicting Resource Requests:
+     HTTP1.1 uses resource inlining technique wherein the server includes the required resources within the HTML page in response to the initial GET request.
+     HTTP2 uses PUSH frame by server wherin the server includes the required resources along with the HTML page requested. Here the page and pushed pages are kept separate unlike in 
+     HTTP1.1.
+     Benefits:
+          - Server can prioritize pushed resources
+          - client machine will be able to cache or decline the pushed pages that are separate from the HTML page
+
+ Overall, HTTP2 improves the performance of the web page compared to HTTP1.1.
+
+
+QUESTION :2
+  Write a blog about objects and its internal representation in Javascript.
+
+Answer:
+                 Objects and its internal representation in Javascript
+OBJECTS:
+     Objects in JavaScript may be defined as an unordered collection of related data, of primitive or reference types, in the form of “key: value” pairs. These keys can be variables
+ or functions and are called properties and methods, respectively, in the context of an object.In JavaScript, an object is a standalone entity, with properties and type. It can be 
+compared to real-world things like a car or a person. For example, an object named student will have properties like name, age, class, percentage, place and so on. These properties 
+define the characteristics of that object.
+For example:
+  // object
+        const student = {
+         firstName: 'Nyra',
+         class: 10,
+         age: 15
+        };
+
+OBJECTS AND PROPERTIES:
+       A JavaScript object has properties associated with it. A property of an object can be explained as a variable that is attached to the object. The properties of an object 
+define the characteristics of the object.
+You can access the value of a property by using its key.
+
+1) Using dot Notation
+   Here's the syntax of the dot notation.
+           objectName.key
+   For example,
+         const country = { 
+         name: 'India', 
+         continent: 'Asia', 
+         };
+
+    // accessing property
+         console.log(country.name); // India
+
+2) Using bracket Notation
+   Here is the syntax of the bracket notation.
+            objectName["propertyName"]
+   For example,
+      const country = { 
+       name: 'India', 
+       continent: 'Asia', 
+      };
+
+// accessing property
+console.log(country["name"]); // India
+
+CREATING NEW OBJECTS:
+   There are different ways to create an object.
+
+1) Using an Object Literal
+     Using an object literal, you both define and create an object in one statement.
+     Example:
+       const student={
+        firstName:'Nyra',
+        class:10,
+        age:15
+        };
+
+    The following example creates an empty JavaScript object, and then adds 4 properties:
+        const student = {};
+        student.firstName = "John";
+        student.age = 15;
+        student.class=10;
+        };
+
+2) Using the JavaScript Keyword new
+     The following example create a new JavaScript object using new Object(), and then adds its properties:
+     Example:
+        const student = new Object();
+        student.firstName = "Nyra";
+        student.class = 10;
+        student.age = 15;
+
+3) Using a constructor function 
+    The objects can be created in the following two steps:
+       1) Define the object type by writing a constructor function. There is a strong convention, with good reason, to use a capital initial letter.
+       2) Create an instance of the object with new.
+    Example:
+       function Student(name, class, age) {
+       this.name = name;
+       this.class = class;
+       this.age = age;
+       }
+
+   Now you can create an object called student1 as follows:
+       const student1 = new Student('Nyra', 10, 15);
+   This statement creates student1 and assigns it the specified values for its properties. The order of arguments and parameters should be the same.
+
+4)Using the object.create method
+
+  This method can be very useful, because it allows you to choose the prototype object for the object you want to create, without having to define a constructor function.
+  Example:
+    // State details
+     const State = {
+      language: 'Hindi', // Default value of properties
+      displayType: function() {  // Method which will display language of state
+       console.log(this.language);
+      }
+     };
+
+    // Create new state called state1
+      const UP = Object.create(State);
+      UP.displayType(); // Output: Hindi
+
+   // Create new state called Kerala
+      const Kerala = Object.create(State);
+      Kerala.language = 'Malayalam';
+      Kerala.displayType(); // Output: Malayalam 
+
+
+
